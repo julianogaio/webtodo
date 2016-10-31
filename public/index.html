@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Todo Test</title>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-cookies.js"></script>
+    ''
+    <script src="app.js"></script>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+
+  <body ng-app="TodoApp" ng-controller="TodoCtrl" >
+    <div class="container">
+      <div class="row">
+       <div class="col-xs-3">
+         <div class="row">
+           
+         </div>
+       </div>      
+      <div id="shopping" class="col-xs-6">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="text-center">
+                <h2>Todo List</h2>
+            </div>
+          </div>
+        </nav>
+	<div class="text-center">
+	  <form ng-submit="submit()" id="form-todo">
+	    <input type="text" ng-model="todotext" name="todotxt">
+	    <input type="submit" value="add todo" class="btn btn-default">
+ 	  </form>
+	</div>	
+        <table class="table table-striped">
+          <tr>
+           <th>Todo</th>
+           <th>Completed</th>
+           <th></th>
+           <th></th>
+          </tr>
+          <tr ng-repeat="todo in data">
+           <td>{{ todo.todo }}</td>
+           <td>{{ todo.completed }}</td>
+           <td>
+	     <button ng-click="completeTodo(todo.id)" class="btn btn-success btn-xs">done</button>
+           </td>
+	   <td>
+	     <button ng-click="deleteTodo(todo.id)" class="btn btn-danger btn-xs">delete</button>
+	   </td>
+          </tr> 
+        </table>
+      </div>
+
+      <div class="row">
+       <div class="col-xs-3">
+         <div class="row">
+           
+         </div>
+       </div>
+      </div>
+
+    </div>
+  </body>
+</html>
